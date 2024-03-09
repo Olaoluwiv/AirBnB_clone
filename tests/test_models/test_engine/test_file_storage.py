@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import unittest
 import contextlib
 import os
@@ -39,7 +41,7 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         del self.b1
         del self.a1 
-        del self.c1 
+        del self.c1
         del self.p1
         del self.r1
         del self.u1
