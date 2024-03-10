@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""ALX AirBnB Console"""
+
 import os
 import sys
 import json
