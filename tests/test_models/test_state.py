@@ -1,45 +1,42 @@
 #!/usr/bin/python3
 
-import unittest
 import json
-import pep8
 import datetime
+import unittest
+import pep8
 
-from models.user import User
+from models.state import State
 from models.base_model import BaseModel
 
 
-class TestUser(unittest.TestCase):
+class TestState(unittest.TestCase):
 
     def test_doc_module(self):
-        doc = User.__doc__
+        doc = State.__doc__
         self.assertGreater(len(doc), 1)
 
-    def test_pep8_conformance_base_model(self):
+    def test_pep8_conformance_state(self):
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/user.py'])
+        result = pep8style.check_files(['models/state.py'])
         self.assertEqual(result.total_errors, 0,
                          "found code style errors (and warnings).")
 
-    def test_pep8_conformance_test_base_model(self):
+    def test_pep8_conformance_test_state(self):
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test_user.py'])
+        result = pep8style.check_files(['tests/test_models/test_state.py'])
         self.assertEqual(result.total_errors, 0,
                          "found code style errors (and warnings).")
 
     def test_doc_constructor(self):
-        doc = User.__init__.__doc__
+        doc = State.__init__.__doc__
         self.assertGreater(len(doc), 1)
 
     def test_class(self):
         with self.subTest(msg='Inheritance'):
-            self.assertTrue(issubclass(User, BaseModel))
+            self.assertTrue(issubclass(State, BaseModel))
 
         with self.subTest(msg='Attributes'):
-            self.assertIsInstance(User.email, str)
-            self.assertIsInstance(User.password, str)
-            self.assertIsInstance(User.first_name, str)
-            self.assertIsInstance(User.last_name, str)
+            self.assertIsInstance(State.place_id, str)
 
 
 if __name__ == '__main__':

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-import unittest
 import json
-import pep8
 import datetime
-
+import unittest
+import pep8
 from models.review import Review
 from models.base_model import BaseModel
+
 
 class TestReview(unittest.TestCase):
 
@@ -14,7 +14,7 @@ class TestReview(unittest.TestCase):
         doc = Review.__doc__
         self.assertGreater(len(doc), 1)
 
-    def test_pep8_conformance_amenity(self):
+    def test_pep8_conformance_review(self):
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/review.py'])
         self.assertEqual(result.total_errors, 0,
@@ -35,9 +35,10 @@ class TestReview(unittest.TestCase):
             self.assertTrue(issubclass(Review, BaseModel))
 
     def test_attributes(self):
-        self.assertIsInstance(Review.place_id, str)
-        self.assertIsInstance(Review.user_id, str)
-        self.assertIsInstance(Review.text, str)
+        with self.subTest(msg='Attributes'):
+            self.assertIsInstance(Review.place_id, str)
+            self.assertIsInstance(Review.user_id, str)
+            self.assertIsInstance(Review.text, str)
 
 if __name__ == '__main__':
     unittest.main()

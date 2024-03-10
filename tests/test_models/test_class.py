@@ -4,7 +4,7 @@ import inspect
 import pep8
 
 
-class TestClassDocumentation():
+class TestClassDocumentation(unittest.TestCase):
 
     def __init__(self, tests, _class):
         self.tests = tests
@@ -15,9 +15,7 @@ class TestClassDocumentation():
         with self.tests.subTest(msg='Testing methods'):
             for f in self.functions:
                 with self.tests.subTest(msg='Documentation method {}'
-                        .format(f[0])):
-
-
+                                        .format(f[0])):
                     doc = f[1].__doc__
                     self.tests.assertGreaterEqual(len(doc), 1)
 

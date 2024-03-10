@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 
 import unittest
-import json
 import pep8
-import datetime
-
 from models.amenity import Amenity
 from models.base_model import BaseModel
 
@@ -23,7 +20,7 @@ class TestAmenity(unittest.TestCase):
 
     def test_pep8_conformance_test_amenity(self):
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test__amenity.py'])
+        result = pep8style.check_files(['tests/test_models/test_amenity.py'])
         self.assertEqual(result.total_errors, 0,
                          "found code style errors (and warnings).")
 

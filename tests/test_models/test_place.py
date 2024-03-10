@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-import unittest
 import json
-import pep8
 import datetime
+import unittest
+import pep8
 
-from models.place_model import Place
+from models.place import Place
 from models.base_model import BaseModel
 
 
@@ -17,11 +17,11 @@ class TestPlace(unittest.TestCase):
 
     def test_pep8_conformance_place(self):
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/place_model.py'])
+        result = pep8style.check_files(['models/place.py'])
         self.assertEqual(result.total_errors, 0,
                          "found code style errors (and warnings).")
 
-    def test_pep8_conformance_test_amenity(self):
+    def test_pep8_conformance_test_place(self):
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['tests/test_models/test_place.py'])
         self.assertEqual(result.total_errors, 0,
@@ -48,5 +48,5 @@ class TestPlace(unittest.TestCase):
             self.assertIsInstance(Place.longitude, float)
             self.assertIsInstance(Place.amenity_ids, list)
 
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()

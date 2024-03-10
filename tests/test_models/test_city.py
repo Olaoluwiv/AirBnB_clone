@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-import unittest
 import json
-import pep8
 import datetime
-
+import unittest
+import pep8
 from models.city import City
 from models.base_model import BaseModel
 

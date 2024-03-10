@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
-import unittest
 import json
+from time import sleep
+import unittest
 import pep8
 import datetime
-from time import sleep
-
 from models.base_model import BaseModel
 
 
@@ -23,7 +22,8 @@ class TestBaseModel(unittest.TestCase):
 
     def test_pep8_conformance_test_base_model(self):
         pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['tests/test_models/test__base_model.py'])
+        result = pep8style.check_files
+        (['tests/test_models/test_base_model.py'])
         self.assertEqual(result.total_errors, 0,
                          "found code style errors (and warnings).")
 
@@ -34,9 +34,9 @@ class TestBaseModel(unittest.TestCase):
     def test_first_task(self):
         my_model = BaseModel()
         self.assertIsInstance(my_model, BaseModel)
-        my_model.name = "Holberton"
+        my_model.name = "ALX"
         my_model.my_number = 89
-        self.assertEqual(my_model.name, "Holberton")
+        self.assertEqual(my_model.name, "ALX")
         self.assertEqual(my_model.my_number, 89)
 
     def test_model_types(self):
@@ -65,16 +65,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(model_3.created_at, model_4.created_at)
 
     def test_string_representation(self):
-        my_model = BaseModel()
-        my_model.name = "holberton"
-        my_model.my_number = 89
-        id_model = my_model.id
-        expected = '[BaseModel] ({}) {}'.format(id_model, my_model.__dict__)
-        self.assertEqual(str(my_model), expected)
-
-    def test_constructor_kwargs(self):
         obj = BaseModel()
-        obj.name = "holberton"
+        obj.name = "ALX"
         obj.my_number = 89
         json_attributes = obj.to_dict()
         obj2 = BaseModel(**json_attributes)

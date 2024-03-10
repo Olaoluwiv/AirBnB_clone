@@ -9,7 +9,8 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
-class FileStorage:
+
+class FileStorage():
 
     _file_path = "file.json"
     _objects = {}

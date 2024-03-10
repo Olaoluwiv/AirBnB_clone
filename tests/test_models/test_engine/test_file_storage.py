@@ -3,7 +3,7 @@
 import unittest
 import contextlib
 import os
-import models
+import json
 import pep8
 import datetime
 
@@ -16,9 +16,10 @@ from models.state import State
 from models.user import User
 from models.review import Review
 
+
 class TestFileStorage(unittest.TestCase):
 
-    def test_pep8__FileStorage(self):
+    def test_pep8_file_storage(self):
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
@@ -40,7 +41,7 @@ class TestFileStorage(unittest.TestCase):
 
     def tearDown(self):
         del self.b1
-        del self.a1 
+        del self.a1
         del self.c1
         del self.p1
         del self.r1
@@ -65,9 +66,9 @@ class TestFileStorage(unittest.TestCase):
     def test_new(self):
         obj = self.storage.all()
         self.u1.id = 1234
-        self.u1.name = "olaoluwa"
+        self.u1.name = "ALX"
         self.storage.new(self.u1)
-        key = "{}.{}".format(self.u1._class_._name_, self.u1.id)
+        key = "{}.{}".format(self.u1.__class__.__name__, self.u1.id)
         self.assertIsNotNone(obj[key])
 
     def test_check_json_loading(self):
@@ -88,6 +89,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(hasattr(FileStorage, 'save'))
         self.assertTrue(FileStorage.reload.__doc__)
         self.assertTrue(hasattr(FileStorage, 'reload'))
+
 
 if __name__ == '__main__':
     unittest.main()
